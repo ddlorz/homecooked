@@ -20,7 +20,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 require('./routes/html-routes.js')(app);
-require('.routes/api-routes.js')(app);
+require('./routes/api-routes.js')(app);
 
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {

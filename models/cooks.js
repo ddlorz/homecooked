@@ -1,5 +1,5 @@
-module.exports = function(sequelize , Datatypes) {
-    var Cooks = seqeulize.define('Cook', {
+module.exports = function(sequelize , DataTypes) {
+    var Cooks = sequelize.define('Cook', {
         name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -18,4 +18,4 @@ module.exports = function(sequelize , Datatypes) {
         }
     });
     return Cooks;
-}
+};
