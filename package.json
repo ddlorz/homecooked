@@ -1,0 +1,21 @@
+{
+  "name": "StoveTop",
+  "version": "1.0.0",
+  "description": "Meal Preparation Application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djrloria/stovetop"
+  },
+  "keywords": [
+    "sequelize",
+    "handlebars",
+    "express",
+    "mysql"
+  ],
+  "author": "Domingo Loria, Brittany Picazo, Erica Rodriguez",
+  "license": "ISC"
+}
