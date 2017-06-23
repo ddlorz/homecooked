@@ -1,3 +1,3 @@
-CREATE DATABASE stove_top;
+CREATE DATABASE homecooked;
 
-USE stove_top;
+USE homecooked;
