@@ -1,29 +1,34 @@
 module.exports = function(sequelize , DataTypes) {
-    var Cooks = sequelize.define('Cook', {
-        name: {
+    var User = sequelize.define('User', {
+        first_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        biography: {
+        last_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        specialty: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        menu_1: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },        
-        menu_2: {
+        password: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        menu_3: {
-            type: DataTypes.STRING,
+        zip: {
+            type: DataTypes.INTEGER,
             allowNull: false
+        },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        classification: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: 'eater' 
         },
     });
-    return Cooks;
+    return User;
 };
