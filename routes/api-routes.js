@@ -16,4 +16,15 @@ module.exports = function(app) {
             res.end();
         });
     });
+
+    app.post('/api/sign_in', function(req, res) {
+        User.findAll({
+            where: {
+                email: req.body.email,
+                password: req.body.email
+            }
+        }).then(function() {
+            red.end();
+        });
+    });
 }

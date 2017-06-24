@@ -1,6 +1,6 @@
 module.exports = function(sequelize , DataTypes) {
     var Cooks = sequelize.define('Cook', {
-        name: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -11,19 +11,7 @@ module.exports = function(sequelize , DataTypes) {
         specialty: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        menu_1: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },        
-        menu_2: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        menu_3: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+        }        
     });
     return Cooks;
 };
