@@ -24,3 +24,7 @@ $('#sign_form').on('click', '#submit_user', function() {
 
 });
 
+$("#sign-in").click(function{
+    $("#sign-in-form").show();
+    $("#sign-up-form").hide();
+});
