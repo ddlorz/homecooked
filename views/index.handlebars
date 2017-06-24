@@ -1,26 +1,95 @@
-<form action="" id='sign_form'>
-    <input type="radio" name="class" value="cook" id='cook_radio'>Cook<br>
-    <input type="radio" name="class" value="eater" id='eater_radio'>Eater<br>
-    <br>
-    <label for='first_name'>First Name</label>
-    <input type='text' id='first_name' name='first_name'></input>
-    <br>
-    <label for='last_name'>Last Name</label>
-    <input type='text' id='last_name' name='last_name'></input>
-    <br>
-    <label for='email'>Email</label>
-    <input type='text' id='email' name='email'></input>
-    <br>
-    <label for='password'>Password</label>
-    <input type='text' id='password' name='password'></input>
-    <br>    
-    <label for='zipcode'>Zipcode</label>
-    <input type='text' id='zipcode' name='zipcode'></input>
-    <br>
-    <label for='phone_number'>Phone Number</label>
-    <input type='text' id='phone_number' name='phone_number'></input>   
+<div class="container">
+    <div class="row" id="header">
+        <h1>Homecooked</h1>
+    </div>
 
-    <input type='submit' id='submit_user' name='submit_user'></input>
-</form>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="carousel-main" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img class="d-block img-fluid" src="" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid" src="" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid" src="" alt="Third slide">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-7">
+                    <div class="panel panel-default container-fluid">
+                        <div class="panel-heading row">
+                            <div class="col-xs-6 text-center"><button class="btn header-button" id="sign-up">Sign Up</button></div>
+                            <div class="col-xs-6 text-center"><button class="btn header-button" id="sign-in">Sign In</button></div>
+                        </div>
 
-<script src='javascript/index.js'></script>
+                        <div class="panel-body" id="sign-up-form">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="first_name" placeholder="First Name">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="email" placeholder="Email Address">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="zipcode" placeholder="Zip Code">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="phone_number" placeholder="Phone Number">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password" placeholder="Create Password">
+                                </div>
+
+                                <button type="submit" id="submit_user" class="btn btn-default">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-offset-2" id="sign-in-form" style="display:none">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email" placeholder="Email Address">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                        </div>
+
+                        <button type="submit" id="sign-in-submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4" id="step1">
+            <img src="" alt="step1-pic">
+        </div>
+
+        <div class="col-md-4" id="step2">
+            <img src="" alt="step2-pic">
+        </div>
+
+        <div class="col-md-4" id="step3">
+            <img src="" alt="step3-pic">
+        </div>
+
+    </div>
+
+</div>
+
+<script src="javascript/index.js"></script>
