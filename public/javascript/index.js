@@ -1,4 +1,4 @@
-$('#sign_form').on('click', '#submit_user', function() {
+$('#sign-up-form').on('click', '#sign-up-submit', function() {
     event.preventDefault();
 
     var classification = '';
@@ -21,10 +21,30 @@ $('#sign_form').on('click', '#submit_user', function() {
    $.post('/api/new_user', user, function(res) {
 
    });
-
 });
 
-$("#sign-in").click(function{
-    $("#sign-in-form").show();
-    $("#sign-up-form").hide();
+$('#sign-in-form').on('click', '#sign-in-submit', function() {
+    event.preventDefault();
+
+    var user_email = $('#user_email').val();
+    var user_password = $('#user_password').val();
+
+    var user = {
+        email: user_email,
+        password: user_password
+    };
+
+    $.post('/api/sign_in', user, function(res) {
+        console.log(res);
+    });
+});
+
+$("#sign-in").click(function() {
+    $("#sign-in-form").removeClass('hide');
+    $("#sign-up-form").addClass('hide');
+});
+
+$("#sign-up").click(function() {
+    $("#sign-up-form").removeClass('hide');
+    $("#sign-in-form").addClass('hide');
 });

@@ -21,10 +21,16 @@ module.exports = function(app) {
         User.findAll({
             where: {
                 email: req.body.email,
-                password: req.body.email
+                password: req.body.password
             }
-        }).then(function() {
-            red.end();
+        }).then(function(result) {
+            //console.log(result[0].dataValues);
+            if (result[0].dataValues) {               
+                console.log('we have res');
+            }
+            else {
+                console.log('no res');
+            }
         });
     });
 }
