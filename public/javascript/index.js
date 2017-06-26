@@ -2,10 +2,10 @@ $('#sign-up-form').on('click', '#sign-up-submit', function() {
     event.preventDefault();
 
     var classification = '';
-    if ($('#cook_radio').val()) {
+    if ($('#chef_radio').val()) {
         classification = 'cook';
     }
-    else if ($('#eater_radio').val()) {
+    else if ($('#customer_radio').val()) {
         classification = 'eater';
     }
 
@@ -18,9 +18,8 @@ $('#sign-up-form').on('click', '#sign-up-submit', function() {
         phone: $('#phone_number').val(),
         class: classification
     };
-   $.post('/api/new_user', user, function(res) {
 
-   });
+   $.post('/api/new_user', user, function(res) {});
 });
 
 $('#sign-in-form').on('click', '#sign-in-submit', function() {
@@ -35,7 +34,14 @@ $('#sign-in-form').on('click', '#sign-in-submit', function() {
     };
 
     $.post('/api/sign_in', user, function(res) {
+        if (res === 'incorrect') {
+           console.log('User and Password are incorrect.');
+           return;
+        }
         console.log(res);
+        var url = window.location.href + 'chef_page'
+        console.log(url);
+        window.location = url;
     });
 });
 

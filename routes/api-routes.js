@@ -18,19 +18,16 @@ module.exports = function(app) {
     });
 
     app.post('/api/sign_in', function(req, res) {
-        User.findAll({
+        User.findOne({
             where: {
                 email: req.body.email,
                 password: req.body.password
             }
         }).then(function(result) {
-            //console.log(result[0].dataValues);
-            if (result[0].dataValues) {               
-                console.log('we have res');
+            if (result !== null) {               
+                res.json(result.dataValues);
             }
-            else {
-                console.log('no res');
-            }
+            else { res.json('incorrect'); }
         });
     });
 }
