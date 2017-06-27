@@ -3,6 +3,6 @@ module.exports = function(app) {
         res.render('index', {});
     });
     app.get('/chef_page', function(req, res) {
-        res.render('chef_page', {});
+        res.render('chef_form', {});
     });
 }

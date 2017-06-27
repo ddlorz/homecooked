@@ -1,6 +1,9 @@
 var db = require('../models');
 var User = db.User;
+var Chef = db.Chef
 var sequelize = db.sequelize;
+
+var user_data = {};
 
 module.exports = function(app) {
     app.post('/api/new_user', function(req, res) {
@@ -17,6 +20,19 @@ module.exports = function(app) {
         });
     });
 
+    app.post('/api/test_email', function(req, res) {
+        User.findOne({
+            where: {
+                email: req.body.email
+            }
+        }).then(function(result) {
+            if (result !== null) {
+                res.json('taken')
+            }
+            else { res.end(); }
+        });
+    });
+
     app.post('/api/sign_in', function(req, res) {
         User.findOne({
             where: {
@@ -24,10 +40,25 @@ module.exports = function(app) {
                 password: req.body.password
             }
         }).then(function(result) {
-            if (result !== null) {               
+            if (result !== null) {
+                user_data = {
+                    email: req.body.email,
+                    password: req.body.password
+                }    
+                console.log(user_data);
                 res.json(result.dataValues);
             }
             else { res.json('incorrect'); }
+        });
+    });
+
+    app.post('/api/chef_profile', function(req, res) {
+        Chef.create({
+            email: user_data.email,
+            biography: req.body.biography,
+            specialty: req.body.specialty
+        }).then(function(result) {
+            res.end();
         });
     });
 }
