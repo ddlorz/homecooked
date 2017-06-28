@@ -44,7 +44,7 @@ $('#sign_up_form').on('click', '#sign_up_submit', function() {
 
 $('#sign_in_form').on('click', '#sign_in_submit', function() {
     event.preventDefault();
-
+    
     if ($('#user_email').val() && $('#user_password').val()) {
         var user_email = $('#user_email').val().trim();
         var user_password = $('#user_password').val().trim();
