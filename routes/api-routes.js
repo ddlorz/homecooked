@@ -39,16 +39,9 @@ module.exports = function(app) {
                 email: req.body.email,
             }
         }).then(function(result) {
-            res.json(result.dataValues);
-            /*if (result !== null) {
-                //user_data = {
-                //    email: req.body.email,
-                //    password: req.body.password
-                //}    
-                console.log(user_data);
-                res.json(result.dataValues);
-            }
-            else { res.json('incorrect'); }*/
+            user_data = result;
+            res.end();
+            //res.json(result.dataValues);            
         });
     });
 
