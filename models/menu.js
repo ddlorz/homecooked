@@ -17,7 +17,7 @@ module.exports = function(sequelize , DataTypes) {
             allowNull: false
         },
         picture: {
-            type: DataTypes.BLOB(medium),
+            type: DataTypes.BLOB('medium'),
             allowNull: true
         }
     });
