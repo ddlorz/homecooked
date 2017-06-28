@@ -11,7 +11,7 @@ module.exports = function(app) {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: req.body.password,
+            //password: req.body.password,
             zip: req.body.zip,
             phone: req.body.phone,
             classification: req.body.class
@@ -20,7 +20,7 @@ module.exports = function(app) {
         });
     });
 
-    app.post('/api/test_email', function(req, res) {
+    /*app.post('/api/test_email', function(req, res) {
         User.findOne({
             where: {
                 email: req.body.email
@@ -31,24 +31,24 @@ module.exports = function(app) {
             }
             else { res.end(); }
         });
-    });
+    });*/
 
     app.post('/api/sign_in', function(req, res) {
         User.findOne({
             where: {
                 email: req.body.email,
-                password: req.body.password
             }
         }).then(function(result) {
-            if (result !== null) {
-                user_data = {
-                    email: req.body.email,
-                    password: req.body.password
-                }    
+            res.json(result.dataValues);
+            /*if (result !== null) {
+                //user_data = {
+                //    email: req.body.email,
+                //    password: req.body.password
+                //}    
                 console.log(user_data);
                 res.json(result.dataValues);
             }
-            else { res.json('incorrect'); }
+            else { res.json('incorrect'); }*/
         });
     });
 
