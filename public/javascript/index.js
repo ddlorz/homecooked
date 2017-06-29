@@ -45,12 +45,8 @@ $(document).ready(function() {
                 $.post('/api/new_user', user, function(res) {
 
                 });   
-            }).catch(function(error) {
-                var errorCode = error.code;
-                console.log(errorCode);                     
-                if (error) {
-                    console.log('Error');                           
-                }
+            }).catch(function(error) {                
+                console.log(error);      
             });   
         }
 
@@ -68,13 +64,12 @@ $(document).ready(function() {
             
             firebase.auth().signInWithEmailAndPassword(user_email, user_password)
             .then(function() {
-
-            }).catch(function(error) {
-                //var errorCode = error.code;
                 $.post('/api/sign_in', {user: user_email}, function(res) {                    
                     var url = window.location.origin + '/chef_page'
                     window.location = url;
                 });
+            }).catch(function(error) {
+                console.log(error);           
             });            
         } 
 
