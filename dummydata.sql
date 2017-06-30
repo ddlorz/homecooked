@@ -23,3 +23,15 @@ VALUES
 ("chef5@gmail.com", "Two bacon, egg and cheese taco with a flour tortilla", "$6")
 ("chef5@gmail.com", "Two tamales with side of refried beans", "$7")
 ("chef5@gmail.com", "Ground beef (5 oz) cooked with sweet peppers, mushrooms and cilantro served alongside two flour tortillas", "$8")
+
+INSERT INTO users (first_name, last_name, email, password, zip, phone, classification)
+VALUES
+("Hungry", "Human", "eater1@gmail.com", "password", 77007, "123-456-7891", "eater")
+("Voracious", "Eater", "eater2@gmail.com", "password", 77006, "123-456-7891",
+"eater")
+("Hangry", "Person", "eater3@gmail.com", "password", 77091, "123-456-7891",
+"eater")
+("Grumbly", "Tummy", "eater4@gmail.com", "password", 77095, "123-456-7891",
+"eater")
+("Food", "Now", "eater5@gmail.com", "password", 77006, "123-456-7891",
+"eater")
