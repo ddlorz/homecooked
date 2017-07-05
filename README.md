@@ -9,12 +9,12 @@ Homecooked is an online platform which connects home chefs who love cooking with
 - Bootstrap 
 - Heroku
 - Javascript 
-- Jquery
+- jQuery
 
 # Developers 
 - Domingo Loria - backend developer
-- Brittney Picazo - frontend developer
+- Brittany Picazo - frontend developer
 - Erica Rodriguez - project manager
 
 # Acknowledgments
-This application was built as part of the Coding Bootcamp at Univeristy of Texas Houston. 
+This application was built as part of The Houston Coding Bootcamp, powered by the Universtity of Texas.
