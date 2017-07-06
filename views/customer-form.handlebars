@@ -1,12 +1,157 @@
 <div class="container">
-    <div class="row" id="header">
-        <h1>Homecooked</h1>
+        <div class="row" id="header">
+            <h1>Homecooked</h1>
+            <hr>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <img src="" alt="customer-image">
+            </div>
+
+            <div class="col-xs-8">
+                <div class="row">
+                    <h3>USERNAME I. | 77005 </h3>
+                </div>
+                <div class="row" id="restrictions">
+                    <div class="col-xs-11">
+                        <h4>
+                            <u>Dietary Restrictions: </u>
+                        </h4>
+                    </div>
+                    <div class="col-xs-1">
+                        <button data-toggle="modal" data-target="#customer_restrictions_modal"><span class="glyphicon glyphicon-pencil"></span></button>
+                    </div>
+                    <!-- List Diet. Restric. Here -->
+                </div>
+
+                 <div class="row" id="allergies">
+                    <div class="col-xs-11">
+                        <h4>
+                            <u>Allergies: </u>
+                        </h4>
+                    </div>
+                    <div class="col-xs-1">
+                        <button data-toggle="modal" data-target="#customer_allergies_modal"><span class="glyphicon glyphicon-pencil"></span></button>
+                    </div>
+                    <!-- List Allergies Here -->
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal fade" id="customer_restrictions_modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Do you have any dietary restrictions?</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Gluten Free
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Low Sugar
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            High Protein
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Paleo
+                        </label>
+                    </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <!-- Add something here to update/add to where Domingo has data stored -->
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="customer_allergies_modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Do you have any allergies?</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Eggs
+                        </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Fish
+                        </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Milk
+                        </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Tree Nuts
+                        </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Peanuts
+                        </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Shellfish
+                        </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Soy
+                        </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Wheat
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <!-- Add something here to update/add to where Domingo has data stored -->
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="row">
-        
-    </div>
-
-</div>
-
-<script src="javascript/index.js"></script>
+    <script src="index.js"></script>
