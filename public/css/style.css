@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400);
+
+:focus { outline: 0;}
+a:link, a:visited, a:active{text-decoration:none; color: #99cccc}
+table {	border-collapse: separate;border-spacing: 0; width: 100%;}
+th, td {text-align: left; font-weight: normal;}
+tr{line-height: 30px;}
+img, iframe {border: none; text-decoration:none;}
+ol, ul {list-style: none;}
+input, textarea, select, button {font-size: 100%;font-family: inherit;}
+*, *:after, *::before{box-sizing:border-box; -ms-box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+
+
+
+/* Main */
+body {
+  font-family: Lato;
+  /*background: #444B54;*/
+  padding: 15px;
+  overflow-x: hidden;
+}
+
+.trigger {
+  font-size: 20px;
+  background: #F04903;
+  color: white;
+  width: 100px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+p{
+  padding: 15px;
+  font-size: 20px;
+  text-align: justify;
+}
+
+h1 {
+    font-family: "Pacifico", cursive;
+    font-size: 4em;
+    padding-bottom: .4em;
+}    
+        
+
+h2 {
+    font-family: "Pacifico", cursive;
+    font-size: 3em;
+    padding-bottom: 3%;
+}
+
+/*.row{
+    margin-bottom: 3%;
+}*/
+
+#main_row {
+    background-image: url("index_chicken.jpg");
+    margin-bottom: -1em;
+}
+
+#main_form {
+    margin-top: -1.75em;
+    margin-bottom: -2.5em;
+}
+
+.form-group {
+    margin-bottom: .5em;
+}
+
+
+#submit_user {
+    width: 100%;
+}
+
+#step1, #step2, #step3 {
+    margin-top: 5em;
+}
+
+.photo{
+    border: 1px solid #444444;
+    height: 7em;
+}
+
+.modal-header{
+    color: #ffffff;
+    background-color: #78af42;
+    text-align: center;
+}
+
+.img-circle {
+    border-radius: 40%;
+}
