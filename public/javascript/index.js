@@ -1,50 +1,89 @@
-$('#sign-up-form').on('click', '#sign-up-submit', function() {
-    event.preventDefault();
-
-    var classification = '';
-    if ($('#cook_radio').val()) {
-        classification = 'cook';
-    }
-    else if ($('#eater_radio').val()) {
-        classification = 'eater';
-    }
-
-    var user = {
-        first_name: $('#first_name').val(),
-        last_name: $('#last_name').val(),
-        email: $('#email').val(),
-        password: $('#email').val(),
-        zip: $('#zipcode').val(),
-        phone: $('#phone_number').val(),
-        class: classification
-    };
-   $.post('/api/new_user', user, function(res) {
-
-   });
-});
-
-$('#sign-in-form').on('click', '#sign-in-submit', function() {
-    event.preventDefault();
-
-    var user_email = $('#user_email').val();
-    var user_password = $('#user_password').val();
-
-    var user = {
-        email: user_email,
-        password: user_password
+$(document).ready(function() { 
+    var config = {
+        apiKey: "AIzaSyA0gZ_0vJGos6-N0ukNLmQxx93dw2UYFUU",
+        authDomain: "homecooked-bb746.firebaseapp.com",
+        databaseURL: "https://homecooked-bb746.firebaseio.com",
+        projectId: "homecooked-bb746",
+        storageBucket: "homecooked-bb746.appspot.com",
+        messagingSenderId: "408118139177"
     };
 
-    $.post('/api/sign_in', user, function(res) {
-        console.log(res);
+    firebase.initializeApp(config);
+
+    $('#sign_up_form').on('click', '#sign_up_submit', function() {
+        event.preventDefault();    
+
+        if ( $('#first_name').val() && $('#last_name').val() && $('#email').val() 
+        && $('#zipcode').val() && $('#phone_number').val() 
+        && ($('#customer_radio').is(':checked') || $('#chef_radio').is(':checked'))) {
+
+            var classification = '';
+    
+            if ($('#customer_radio').is(':checked')) {
+                classification = 'Consumer';
+            }
+            else if ($('#chef_radio').is(':checked')) {
+                classification = 'Chef';
+            }
+
+            var user_email = $('#email').val().trim();
+            var user_password = $('#password').val().trim();
+
+            var user = {
+                first_name: $('#first_name').val().trim(),
+                last_name: $('#last_name').val().trim(),
+                email: user_email,
+                //password: user_password,
+                zip: $('#zipcode').val().trim(),
+                phone: $('#phone_number').val().trim(),
+                class: classification
+            };                    
+            
+            firebase.auth().createUserWithEmailAndPassword(user_email, user_password)
+            .then(function() {
+                console.log('No Error');  
+                $.post('/api/new_user', user, function(res) {
+
+                });   
+            }).catch(function(error) {                
+                console.log(error);      
+            });   
+        }
+
+        //add izimodal to message user about incomplete form
+        else { console.log('Please fill every box.'); }
     });
-});
+        
 
-$("#sign-in").click(function() {
-    $("#sign-in-form").removeClass('hide');
-    $("#sign-up-form").addClass('hide');
-});
+    $('#sign_in_form').on('click', '#sign_in_submit', function() {
+        event.preventDefault();
+        
+        if ($('#user_email').val() && $('#user_password').val()) {
+            var user_email = $('#user_email').val().trim();
+            var user_password = $('#user_password').val().trim();
+            
+            firebase.auth().signInWithEmailAndPassword(user_email, user_password)
+            .then(function() {
+                $.post('/api/sign_in', {user: user_email}, function(res) {                    
+                    var url = window.location.origin + '/chef_page'
+                    window.location = url;
+                });
+            }).catch(function(error) {
+                console.log(error);           
+            });            
+        } 
 
-$("#sign-up").click(function() {
-    $("#sign-up-form").removeClass('hide');
-    $("#sign-in-form").addClass('hide');
+        //add izimodal to message user about incomplete form
+        else { console.log('Please complete form.'); }   
+    });
+
+    $("#sign_in").click(function() {
+        $("#sign_in_form").removeClass('hide');
+        $("#sign_up_form").addClass('hide');
+    });
+
+    $("#sign_up").click(function() {
+        $("#sign_up_form").removeClass('hide');
+        $("#sign_in_form").addClass('hide');
+    });
 });
