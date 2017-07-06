@@ -4,7 +4,7 @@ VALUES
 ("chef2@gmail.com", "Steak-afficinado, mixed-veggie master on a health kick.", "poultry, beef, vegetables, pasta, salads, fruits","gluten-free, organic")
 ("chef3@gmail.com", "Comfort food from my kitchen to yours", "poultry, beef, vegetables, pasta, salads, fruits")
 ("chef4@gmail.com", "Voracious vegetarian who loves sweet peppers", "tofu, tempeh, vegetables, quiona, salads, asian fusion")
-("chef5@gmail.com", "Authentic Tex-Mex master meal maker", "beef, eggs, rice, Mexican cuisine")
+("chef5@gmail.com", "Authentic Tex-Mex master meal maker", "beef, eggs, rice, Mexican cuisine");
 
 INSERT INTO menus (email, item, price)
 VALUES
@@ -22,7 +22,7 @@ VALUES
 ("chef4@gmail.com", "Spicy tacos filled with grilled onion, mushroom and squash medley", "$7")
 ("chef5@gmail.com", "Two bacon, egg and cheese taco with a flour tortilla", "$6")
 ("chef5@gmail.com", "Two tamales with side of refried beans", "$7")
-("chef5@gmail.com", "Ground beef (5 oz) cooked with sweet peppers, mushrooms and cilantro served alongside two flour tortillas", "$8")
+("chef5@gmail.com", "Ground beef (5 oz) cooked with sweet peppers, mushrooms and cilantro served alongside two flour tortillas", "$8");
 
 INSERT INTO users (first_name, last_name, email, password, zip, phone, classification)
 VALUES
@@ -34,4 +34,4 @@ VALUES
 ("Grumbly", "Tummy", "eater4@gmail.com", "password", 77095, "123-456-7891",
 "eater")
 ("Food", "Now", "eater5@gmail.com", "password", 77006, "123-456-7891",
-"eater")
+"eater");
