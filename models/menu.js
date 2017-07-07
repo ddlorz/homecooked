@@ -13,7 +13,7 @@ module.exports = function(sequelize , DataTypes) {
             allowNull: false
         },
         price: {
-            type: DataTypes.FLOAT(4, 2),
+            type: DataTypes.STRING,
             allowNull: false
         },
         picture_url: {
