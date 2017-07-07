@@ -16,8 +16,8 @@ module.exports = function(sequelize , DataTypes) {
             type: DataTypes.FLOAT(4, 2),
             allowNull: false
         },
-        picture: {
-            type: DataTypes.BLOB('medium'),
+        picture_url: {
+            type: DataTypes.STRING,
             allowNull: true
         }
     });
