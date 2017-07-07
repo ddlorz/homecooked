@@ -16,11 +16,7 @@ module.exports = function(sequelize , DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-<<<<<<< HEAD
         picture_url: {
-=======
-        picture: {
->>>>>>> updated models and package.json
             type: DataTypes.STRING,
             allowNull: true
         }
