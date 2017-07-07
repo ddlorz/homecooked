@@ -1,11 +1,3 @@
-INSERT INTO chefs (email, biography, specialty)
-VALUES
-("chef1@gmail.com", "Sweet treats, savor sauces & yummy meats", "beef, poultry, pork, breads, pasta, rice, sweet sauces, fruits")
-("chef2@gmail.com", "Steak-afficinado, mixed-veggie master on a health kick.", "poultry, beef, vegetables, pasta, salads, fruits","gluten-free, organic")
-("chef3@gmail.com", "Comfort food from my kitchen to yours", "poultry, beef, vegetables, pasta, salads, fruits")
-("chef4@gmail.com", "Voracious vegetarian who loves sweet peppers", "tofu, tempeh, vegetables, quiona, salads, asian fusion")
-("chef5@gmail.com", "Authentic Tex-Mex master meal maker", "beef, eggs, rice, Mexican cuisine");
-
 INSERT INTO menus (email, item, price)
 VALUES
 ("chef1@gmail.com", "Chicken fried steak with garlic mashed potatoes and a chocolate chip cookie", "$10")
@@ -35,3 +27,13 @@ VALUES
 "eater")
 ("Food", "Now", "eater5@gmail.com", "password", 77006, "123-456-7891",
 "eater");
+
+INSERT INTO Chefs (email, biography, specialty, location)
+VALUES
+("chef1@gmail.com", "Sweet treats, savor sauces & yummy meats", "beef, poultry, pork, breads, pasta, rice, sweet sauces, fruits", "Houston, TX", 7),
+("chef2@gmail.com", "Steak-afficinado, mixed-veggie master on a health kick.", "poultry, beef, vegetables, pasta, salads, fruits","gluten-free, organic", "Pasadena, TX", 7),
+("chef3@gmail.com", "Comfort food from my kitchen to yours", "poultry, beef, vegetables, pasta, salads, fruits", "Katy, TX", 7),
+("chef4@gmail.com", "Voracious vegetarian who loves sweet peppers", "tofu, tempeh, vegetables, quiona, salads, asian fusion", "The Woodlands, TX", 7),
+("chef5@gmail.com", "Authentic Tex-Mex master meal maker", "beef, eggs, rice, Mexican cuisine", "Cypress, TX", 7),
+("chef6@gmail.com", "American Steak and Shake", "beef, shakes", "Galveston, TX", 7);
+
