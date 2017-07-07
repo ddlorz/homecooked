@@ -1,5 +1,5 @@
 module.exports = function(sequelize , DataTypes) {
-    var Cooks = sequelize.define('Cook', {
+    var Chef = sequelize.define('Chef', {
         email: {
             type: DataTypes.STRING,
             allowNull: false
@@ -11,7 +11,15 @@ module.exports = function(sequelize , DataTypes) {
         specialty: {
             type: DataTypes.STRING,
             allowNull: false
-        }        
+        },
+        radius: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        picture_url: {
+            type: DataTypes.STRING,
+            allowNull: true
+        }
     });
-    return Cooks;
+    return Chef;
 };
