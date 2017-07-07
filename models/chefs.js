@@ -17,9 +17,15 @@ module.exports = function(sequelize , DataTypes) {
             allowNull: false
         },
 <<<<<<< HEAD
+<<<<<<< HEAD
         picture: {
 =======
         picture_url: {
+=======
+        picture_url: {
+=======
+        picture: {
+>>>>>>> update chefs.js
 >>>>>>> updated models and package.json
             type: DataTypes.STRING,
             allowNull: true
