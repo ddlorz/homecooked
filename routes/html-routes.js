@@ -20,7 +20,12 @@ module.exports = function(app) {
                 required: false
             }
         }).then(function(result) {
-            console.log(result[1].dataValues.email);
+            for (var i in result) {
+                result[i].dataValues.User.dataValues.first_name = result[i].dataValues.User.dataValues.first_name.replace(/\b[a-z]/g, function(letter) {                
+                    return letter.toUpperCase();
+                });
+                result[i].dataValues.User.dataValues.last_name = result[i].dataValues.User.dataValues.last_name.slice(0 , 1).toUpperCase();   
+            };
             res.render('chef-gallery', {chefs: result});
         });
         

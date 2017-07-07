@@ -62,6 +62,7 @@ h4{
 #main_row {
     background-image: url("../assets/index_chicken.jpg");
     margin-bottom: -1em;
+    height: 500px;
 }
 
 #main_form {

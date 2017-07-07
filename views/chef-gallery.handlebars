@@ -6,14 +6,14 @@
         <!-- ADD PHOTOS FROM ASSETS OR UPLOADED via SITE? -->
         <div class="row text-center">
             {{#each chefs}}
-                <div class="col-md-4 col-sm-6">
-                    <div class="col-xs-12 gallery">
+                <div class="col-sm-4">
+                    <div class="gallery">
                         <div class="row">
-                            <img src="assets/chicken_2.jpg" class="gallery_pic" width="70%">
+                            <img src={{this.dataValues.picture_url}} class="gallery_pic" width="75%">
                         </div>
                         <div class="row">
-                            {{this.dataValues.User.dataValues.first_name}} | {{this.dataValues.User.dataValues.zip}}
-                            <br>From $7/Meal
+                            {{this.dataValues.User.dataValues.first_name}} {{this.dataValues.User.dataValues.last_name}}. | {{this.dataValues.location}}
+                            <br>From ${{this.dataValues.price}}/Meal
                             <br>&#9733 &#9733 &#9733 &#9733 &#9734
                         </div>
                     </div>
@@ -96,4 +96,6 @@
         </div>
     </div>
  </div>
-    <script src="javascript/chef_gallery.js"></script>
+<script src="javascript/chef_gallery.js"></script>
+
+    
