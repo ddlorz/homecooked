@@ -16,7 +16,11 @@ module.exports = function(sequelize , DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+<<<<<<< HEAD
+        picture_url: {
+=======
         picture: {
+>>>>>>> ddf2bc4e17e26124aac1616160b7e3cc02a6b82d
             type: DataTypes.STRING,
             allowNull: true
         }

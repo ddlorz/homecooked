@@ -16,8 +16,8 @@ module.exports = function(sequelize , DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        picture: {
-            type: DataTypes.BLOB('medium'),
+        picture_url: {
+            type: DataTypes.STRING,
             allowNull: true
         }
     });
