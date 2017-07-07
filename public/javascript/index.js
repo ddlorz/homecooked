@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     firebase.initializeApp(config);
 
-    $('#sign_up_form').on('click', '#sign_up_submit', function () {
+    $('#sign_up_form').on('click', '#submit_user', function () {
         event.preventDefault();
 
         if ($('#first_name').val() && $('#last_name').val() && $('#email').val()
@@ -26,14 +26,13 @@ $(document).ready(function () {
                 classification = 'Chef';
             }
 
-            var user_email = $('#email').val().trim();
+            var user_email = $('#email').val().trim().toLowerCase();
             var user_password = $('#password').val().trim();
 
             var user = {
-                first_name: $('#first_name').val().trim(),
-                last_name: $('#last_name').val().trim(),
+                first_name: $('#first_name').val().trim().toLowerCase(),
+                last_name: $('#last_name').val().trim().toLowerCase(),
                 email: user_email,
-                //password: user_password,
                 zip: $('#zipcode').val().trim(),
                 phone: $('#phone_number').val().trim(),
                 class: classification
@@ -41,9 +40,17 @@ $(document).ready(function () {
 
             firebase.auth().createUserWithEmailAndPassword(user_email, user_password)
                 .then(function () {
-                    console.log('No Error');
+                    //console.log('No Error');
                     $.post('/api/new_user', user, function (res) {
-
+                        localStorage.setItem('email', user_email);
+                        if (classification === 'Consumer') {
+                            var url = window.location.origin + '/chef_gallery'
+                            window.location = url;
+                        }
+                        else if (classification === 'Chef') {
+                            var url = window.location.origin + '/chef_page'
+                            window.location = url;
+                        }                        
                     });
                 }).catch(function (error) {
                     console.log(error);
@@ -59,13 +66,14 @@ $(document).ready(function () {
         event.preventDefault();
 
         if ($('#user_email').val() && $('#user_password').val()) {
-            var user_email = $('#user_email').val().trim();
-            var user_password = $('#user_password').val().trim();
+            var user_email = $('#user_email').val().trim().toLowerCase();
+            var user_password = $('#user_password').val().trim();           
 
             firebase.auth().signInWithEmailAndPassword(user_email, user_password)
                 .then(function () {
-                    $.post('/api/sign_in', { user: user_email }, function (res) {
-                        var url = window.location.origin + '/chef_page'
+                    localStorage.setItem('email', user_email);
+                    $.post('/api/sign_in', { email: user_email }, function (res) {
+                        var url = window.location.origin + '/chef_gallery'
                         window.location = url;
                     });
                 }).catch(function (error) {

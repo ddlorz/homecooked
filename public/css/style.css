@@ -41,8 +41,8 @@ p{
 
 h1 {
     font-family: "Pacifico", cursive;
-    font-size: 4em;
-    padding-bottom: .4em;
+    font-size: 4.5em;
+    /*padding-bottom: .4em;*/
 }    
         
 
@@ -52,12 +52,15 @@ h2 {
     padding-bottom: 3%;
 }
 
-/*.row{
-    margin-bottom: 3%;
-}*/
+h3{
+    /*padding-top: 4%;*/
+}
+h4{
+    color: #777777;
+}
 
 #main_row {
-    background-image: url("index_chicken.jpg");
+    background-image: url("../assets/index_chicken.jpg");
     margin-bottom: -1em;
 }
 
@@ -75,8 +78,9 @@ h2 {
     width: 100%;
 }
 
-#step1, #step2, #step3 {
-    margin-top: 5em;
+#step1_pic, #step2_pic, #step3_pic {
+    border-radius: 50%;
+    border: 1px solid #aaaaaa;
 }
 
 .photo{
@@ -92,4 +96,15 @@ h2 {
 
 .img-circle {
     border-radius: 40%;
+}
+
+.gallery_pic{
+    margin-top: 4%;
+}
+
+.gallery{
+    border: 1px solid #dddddd;
+    margin: 2%;
+    background-color: #eeeeee;
+    border-radius: 3%;
 }
