@@ -1,47 +1,257 @@
 <div class="container">
-    <div class="row" id="header">
-        <div class="col-xs-4 col-xs-offset-1">
-            <h1>Homecooked</h1>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-4" id="photo1">
-        </div>
-        <div class="col-xs-4" id="photo2">
-        </div>
-        <div class="col-xs-4" id="photo3">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-4">
-
-        </div>
-        <div class="col-xs-8">
-            <div class="row" id="chef_info">
-
-            </div>
-
-            <div class="row" id="specialties">
-            </div>
-
-            <div class="row" id="restrictions">
-            </div>
-
-            <div class="row" id="travel_radius">
+        <div class="row" id="header">
+            <div class="col-xs-4 col-xs-offset-1">
+                <h1>Homecooked</h1>
+                <hr>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-4 photo" id="photo1">
+                Upload Photo
+            </div>
+            <div class="col-xs-4 photo" id="photo2">
+                Upload Photo
+            </div>
+            <div class="col-xs-4 photo" id="photo3">
+                Upload Photo
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <img src="" alt="chef_photo" height="100px" width="100px">
+                <br> Upload a photo of yourself
+                <br> Describe yourself
+                <br>
+            </div>
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h4>First Name:</h4>
+                    </div>
+                    <div class="col-xs-5">
+                        <h4>Last Name:</h4>
+                    </div>
+                    <div class="col-xs-1">
+                        <button data-toggle="modal" data-target="#chef_about_modal"><span class="glyphicon glyphicon-pencil"></span></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Zip Code:</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Price Per Meal:</h4>
+                    </div>
+                </div>
+                <div class="row" id="specialties">
+                    <div class="col-xs-11">
+                        <h4>
+                            <u>Specialties: </u>
+                        </h4>
+                    </div>
+                    <div class="col-xs-1">
+                        <button data-toggle="modal" data-target="#chef_specialties_modal"><span class="glyphicon glyphicon-pencil"></span></button>
+                    </div>
+                    <!-- List Specialties Here -->
+                </div>
+                <div class="row" id="restrictions">
+                    <div class="col-xs-11">
+                        <h4>
+                            <u>Dietary Restrictions: </u>
+                        </h4>
+                    </div>
+                    <div class="col-xs-1">
+                        <button data-toggle="modal" data-target="#chef_restrictions_modal"><span class="glyphicon glyphicon-pencil"></span></button>
+                    </div>
+                    <!-- List Diet. Restric. Here -->
+                </div>
+                <div class="row" id="specialties">
+                    <div class="col-md-11">
+                        <h4>
+                            <u>Travel Radius: </u>
+                        </h4>
+                    </div>
+                    <div class="col-md-1">
+                        <button data-toggle="modal" data-target="#chef_radius_modal"><span class="glyphicon glyphicon-pencil"></span></button>
+                    </div>
+                    <!-- List Travel Radius Here -->
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-xs-4 photo" id="menu1">
+                <h5>Specialty 1</h5>
+            </div>
+            <div class="col-xs-4 photo" id="menu2">
+                <h5>Specialty 2</h5>
+            </div>
+            <div class="col-xs-4 photo" id="menu3">
+                <h5>Specialty 3</h5>
+                <button data-toggle="modal" data-target="#"><span class="glyphicon glyphicon-pencil"></span></button>
+            </div>
+        </div>
     </div>
-
-    <div class="row">
-        <div class="col-xs-4" id="menu1">
-        </div>
-        <div class="col-xs-4" id="menu2">
-        </div>
-        <div class="col-xs-4" id="menu3">
+    <!-- MODAL FOR CHANGING "About Me" SECTION -->
+    <div class="modal fade" id="chef_about_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Edit Profile Info</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="text">Upload a photo of yourself</label>
+                        <input type="text" class="form-control" id="photo">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Tell us a little about yourself</label>
+                        <input type="text" class="form-control" id="biography">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">First Name</label>
+                        <input type="text" class="form-control" id="first_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Last Name</label>
+                        <input type="text" class="form-control" id="last_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Zip Code</label>
+                        <input type="text" class="form-control" id="zipcode">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Price Per Meal</label>
+                        <input type="text" class="form-control" id="price">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- Add something here to update/add to where Domingo has data stored -->
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-<script src="javascript/chef_form.js"></script>
+    <!-- MODAL FOR CHANGING "Specialties" SECTION -->
+    <div class="modal fade" id="chef_specialties_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Edit Your Specialties</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Tex-Mex
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Italian
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Asian
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- Add something here to update/add to where Domingo has data stored -->
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL FOR CHANGING "Dietary Restrictions" SECTION -->
+    <div class="modal fade" id="chef_restrictions_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Do you cater to any dietary restrictions?</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Gluten Free
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Low Sugar
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            High Protein
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Paleo
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- Add something here to update/add to where Domingo has data stored -->
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL FOR CHANGING "Travel Radius" SECTION -->
+    <div class="modal fade" id="chef_radius_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">How far are you willing to travel?</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default">
+                                <input type="radio" name="options" id="chef_radio">0-3 miles
+                            </label>
+                        <label class="btn btn-default">
+                                <input type="radio" name="options" id="customer_radio">3-5 miles
+                            </label>
+                        <label class="btn btn-default">
+                                <input type="radio" name="options" id="customer_radio">5-10 miles
+                            </label>
+                        <label class="btn btn-default">
+                                <input type="radio" name="options" id="customer_radio">10-15 miles
+                            </label>
+                        <label class="btn btn-default">
+                                <input type="radio" name="options" id="customer_radio">15+ miles
+                            </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- Add something here to update/add to where Domingo has data stored -->
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/chef-form.js"></script>
