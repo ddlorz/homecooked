@@ -13,11 +13,9 @@ $(document).ready(function() {
         $('#firstName').html('First Name: ' + first_name);
         $('#lastName').html('Last Name: ' + last_name);
         $('#zipCode').html('Zip Code: ' + res.zip);
-        console.log(res);
     });
 
     $(document).on('click', '#profile_save', function() {
-        console.log('you clicked me');
         if ($('#photo').val() && $('#biography').val() && $('#price').val()) {
             var chef = {
                 email: email,
