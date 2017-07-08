@@ -1,100 +1,99 @@
 <div class="container">
-        <div class="row" id="header">
-            <h1>Homecooked</h1>
-            <hr>
-        </div>
-        <!-- ADD PHOTOS FROM ASSETS OR UPLOADED via SITE? -->
-        <div class="row text-center">
-            {{#each chefs}}
-                <div class="col-sm-4">
-                    <div class="gallery">
-                        <div class="row">
-                            <img src={{this.dataValues.picture_url}} class="gallery_pic" width="75%">
-                        </div>
-                        <div class="row">
-                            {{this.dataValues.User.dataValues.first_name}} {{this.dataValues.User.dataValues.last_name}}. | {{this.dataValues.location}}
-                            <br>From ${{this.dataValues.price}}/Meal
-                            <br>&#9733 &#9733 &#9733 &#9733 &#9734
-                        </div>
-                    </div>
-                </div>
-            {{/each}}
-            <!--
-            <div class="col-md-4 col-sm-6">
-                <div class="col-xs-12 gallery">
+    <div class="row" id="header">
+        <h1>Homecooked</h1>
+        <hr>
+    </div>
+    <!-- ADD PHOTOS FROM ASSETS OR UPLOADED via SITE? -->
+    <div class="row text-center">
+        {{#each chefs}}
+            <div class="col-sm-4 chef_link" id={{this.dataValues.email}}>
+                <div class="gallery">
                     <div class="row">
-                        <img src="assets/chicken_2.jpg" class="gallery_pic" width="70%">
+                        <img src={{this.dataValues.picture_url}} class="gallery_pic" width="75%">
                     </div>
                     <div class="row">
-                        Adam A. | Houston, TX
-                        <br>From $7/Meal
+                        {{this.dataValues.User.dataValues.first_name}} {{this.dataValues.User.dataValues.last_name}}. | {{this.dataValues.location}}
+                        <br>From ${{this.dataValues.price}}/Meal
                         <br>&#9733 &#9733 &#9733 &#9733 &#9734
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="col-xs-12 gallery">
-                    <div class="row">
-                        <img src="assets/friedchicken_6.jpg" class="gallery_pic" width="70%">
-                    </div>
-                    <div class="row">
-                        Brittany B. | Pasadena, TX
-                        <br>From $9/Meal
-                        <br>&#9733 &#9733 &#9733 &#9733 &#9733
-                    </div>
-                </div>
+        {{/each}}    
+    </div>
+    <!--
+    <div class="col-md-4 col-sm-6">
+        <div class="col-xs-12 gallery">
+            <div class="row">
+                <img src="assets/chicken_2.jpg" class="gallery_pic" width="70%">
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="col-xs-12 gallery">
-                    <div class="row">
-                        <img src="assets/roast_3.jpg" class="gallery_pic" width="70%">
-                    </div>
-                    <div class="row">
-                        Cat C. | Katy, TX
-                        <br>From $6/Meal
-                        <br>&#9733 &#9733 &#9733 &#9733 &#9734
-                    </div>
-                </div>
+            <div class="row">
+                Adam A. | Houston, TX
+                <br>From $7/Meal
+                <br>&#9733 &#9733 &#9733 &#9733 &#9734
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="col-xs-12 gallery">
-                    <div class="row">
-                        <img src="assets/salad_7.jpg" class="gallery_pic" width="70%">
-                    </div>
-                    <div class="row">
-                        Danielle D. | The Woodlands, TX
-                        <br>From $8/Meal
-                        <br>&#9733 &#9733 &#9733 &#9734 &#9734
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="col-xs-12 gallery">
-                    <div class="row">
-                        <img src="assets/salmon_1.jpg" class="gallery_pic" width="70%">
-                    </div>
-                    <div class="row">
-                        Erica E. | Cypress, TX
-                        <br>From $7/Meal
-                        <br>&#9733 &#9733 &#9733 &#9733 &#9734
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="col-xs-12 gallery">
-                    <div class="row">
-                        <img src="assets/tacos_8.jpg" class="gallery_pic" width="70%">
-                    </div>
-                    <div class="row">
-                        Fred F | Tomball, TX
-                        <br>From $6/Meal
-                        <br>&#9733 &#9733 &#9733 &#9734 &#9734
-                    </div>
-                </div>
-            </div>
-            -->
         </div>
     </div>
+    <div class="col-md-4 col-sm-6">
+        <div class="col-xs-12 gallery">
+            <div class="row">
+                <img src="assets/friedchicken_6.jpg" class="gallery_pic" width="70%">
+            </div>
+            <div class="row">
+                Brittany B. | Pasadena, TX
+                <br>From $9/Meal
+                <br>&#9733 &#9733 &#9733 &#9733 &#9733
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+        <div class="col-xs-12 gallery">
+            <div class="row">
+                <img src="assets/roast_3.jpg" class="gallery_pic" width="70%">
+            </div>
+            <div class="row">
+                Cat C. | Katy, TX
+                <br>From $6/Meal
+                <br>&#9733 &#9733 &#9733 &#9733 &#9734
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+        <div class="col-xs-12 gallery">
+            <div class="row">
+                <img src="assets/salad_7.jpg" class="gallery_pic" width="70%">
+            </div>
+            <div class="row">
+                Danielle D. | The Woodlands, TX
+                <br>From $8/Meal
+                <br>&#9733 &#9733 &#9733 &#9734 &#9734
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+        <div class="col-xs-12 gallery">
+            <div class="row">
+                <img src="assets/salmon_1.jpg" class="gallery_pic" width="70%">
+            </div>
+            <div class="row">
+                Erica E. | Cypress, TX
+                <br>From $7/Meal
+                <br>&#9733 &#9733 &#9733 &#9733 &#9734
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+        <div class="col-xs-12 gallery">
+            <div class="row">
+                <img src="assets/tacos_8.jpg" class="gallery_pic" width="70%">
+            </div>
+            <div class="row">
+                Fred F | Tomball, TX
+                <br>From $6/Meal
+                <br>&#9733 &#9733 &#9733 &#9734 &#9734
+            </div>
+        </div>
+    </div>
+    -->
  </div>
 <script src="javascript/chef_gallery.js"></script>
 

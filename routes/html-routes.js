@@ -30,7 +30,25 @@ module.exports = function(app) {
         });
         
     });
-    app.get('/chef_profile', function(req, res) {
-        res.render('chef-profile', {});
+    app.get('/chef_profile/:chef_id', function(req, res) {
+        var chef_id = req.params.chef_id + '@gmail.com';
+
+        User.hasOne(Chef);
+        Chef.belongsTo(User, {foreignKey: 'userId'});
+
+        Chef.findOne({  
+            where: {
+                 email: chef_id   
+            },
+            include: {
+                model: User,
+                required: false
+            }
+        }).then(function(result) {
+            console.log(result);
+            res.render('chef-profile', {chef: result});
+        });
+        
+        
     });
 }

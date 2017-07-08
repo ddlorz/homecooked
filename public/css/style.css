@@ -109,3 +109,8 @@ h4{
     background-color: #eeeeee;
     border-radius: 3%;
 }
+
+.chef_link:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
