@@ -1,12 +1,13 @@
 <div class="container">
     <div class="row" id="header">
-        <h1>Homecooked</h1>
+        <h1 class='inline'>Homecooked</h1>        
+        <b class='inline right' id='sign_out'>Sign Out</b>
         <hr>
     </div>
     <div class="row">
         <div class="col-xs-4">
             <div class="row">
-                <img class="img-circle center-block" src="/assets/chef.jpg" alt="chef-image" width="60%">
+                <img class="img-circle center-block profile-picture" src={{result.dataValues.User.dataValues.photo}} alt="chef-image" width="60%">
             </div>
             <div class="row center-block text-center" id="chef_bio">
                 <h4>Steak-aficionado, mixed-veggie master on a health kick</h4>
@@ -22,7 +23,7 @@
                 <h4><u>Radius:</u> 15+ Miles</h4>   
                 <br> 
                 <br>
-                <input class="btn btn-primary" type="button" value="message">            
+                <input data-toggle="modal" data-target="#message_modal" class="btn btn-primary" type="button" value="MESSAGE">            
             </div>
         </div>
     </div>
@@ -52,5 +53,62 @@
             <div class="row" id="menu3_desc"></div>
         </div>
     </div>
+    <div class="modal fade" id="message_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title inline">Send Chef Message</h3>
+                    <button type="button" class="close inline" data-dismiss="modal" aria-label="Close">&times;</button>
+                </div>             
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="text">To: </label>
+                        <input type="text" class="form-control" id='chef_email' value={{result.dataValues.email}} disabled>
+                    </div>  
+                    <div class="form-group">
+                        <label for="text">Subject: </label>
+                        <input type="text" class="form-control" id='email_subject' placeholder="Subject">
+                    </div> 
+                    <div class="form-group">
+                        <label for="text">Message: </label>
+                        <textarea type="text" class="form-control" id="user_message" rows='10'></textarea>
+                    </div>                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id='send_message'>Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <footer class="nav text-center" id="footer">  
+        <label for='footer' class='text-center'><h3>Follow Us<h3></label>  
+        <a class="nav-link" href="#"><img src='/assets/twitter.png' class='follow_icon' alt='twitter'></a> | 
+        <a class="nav-link" href="#"><img src='/assets/facebook.png' class='follow_icon' alt='facebook'></a> | 
+        <a class="nav-link" href="#"><img src='/assets/instagram.png' class='follow_icon' alt='instagram'></a> | 
+        <a class="nav-link" href="#"><img src='/assets/youtube.png' class='follow_icon' alt='youtube'></a>
+    </footer>
+
 </div>
+
+<script>
+    $(document).on('click', '#send_message', function() {
+         $('#message_modal').modal('toggle');
+         $('#email_subject').val('');
+         $('#user_message').val('');
+         $.post('/api/send_mail', {}, function(res) {});
+    });
+
+    $(document).on('click', '#sign_out', function() {
+         localStorage.setItem('chef_email', '');
+         localStorage.setItem('email', '');
+
+         var url = window.location.origin + '/'
+         window.location = url;
+    });
+
+</script>
 

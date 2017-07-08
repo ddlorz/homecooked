@@ -11,4 +11,12 @@ $(document).ready(function() {
         var url = window.location.origin + '/chef_profile/' + chef_id;
         window.location = url;        
     });
+
+     $(document).on('click', '#sign_out', function() {
+         localStorage.setItem('chef_email', '');
+         localStorage.setItem('email', '');
+
+         var url = window.location.origin + '/'
+         window.location = url;
+    });
 });

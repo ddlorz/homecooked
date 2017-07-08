@@ -2,6 +2,7 @@ var db = require('../models');
 var User = db.User;
 var Chef = db.Chef
 var sequelize = db.sequelize;
+var nodemailer = require('nodemailer');
 
 module.exports = function(app) {
     app.post('/api/new_user', function(req, res) {
@@ -57,6 +58,37 @@ module.exports = function(app) {
             }
         }).then(function(result) {
             res.json(result);
+        });
+    });
+
+    app.post('/api/send_mail', function(req, res) {
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            port: 25,
+            secure: false,
+            auth: {
+                user: 'homecookeddummy@gmail.com',
+                pass: 'homecooked'
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+
+        let mailOptions = {
+            from: '"Hola Man" <homecookeddummy@gmail.com>',
+            to: 'djrloria@gmail.com',
+            subject: 'HI',
+            text: 'what',
+            html: 'hello'
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message %s sent: %s', info.messageId, info.response);
+            res.end();
         });
     });
 }

@@ -53,7 +53,7 @@ h2 {
 }
 
 h3{
-    /*padding-top: 4%;*/
+   font-family: "Pacifico", cursive;
 }
 h4{
     color: #777777;
@@ -61,7 +61,7 @@ h4{
 
 #main_row {
     background-image: url("../assets/index_chicken.jpg");
-    margin-bottom: -1em;
+    margin-bottom: 2em;
     height: 500px;
 }
 
@@ -113,4 +113,30 @@ h4{
 .chef_link:hover {
     opacity: 0.8;
     cursor: pointer;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.right {
+    float: right;
+}
+
+#sign_out:hover {
+    color: #337ab7;
+    cursor: pointer;
+}
+
+#footer {
+    margin-top: 30px;
+}
+
+.follow_icon {
+    width: 50px;
+    height: 50px;
+}
+
+.follow_icon:hover {
+    opacity: 0.5;
 }

@@ -12,6 +12,10 @@ module.exports = function(sequelize , DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        photo: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         zip: {
             type: DataTypes.INTEGER,
             allowNull: false
