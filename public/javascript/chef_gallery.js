@@ -2,7 +2,6 @@ $(document).ready(function() {
     var email = localStorage.getItem('email');
     
     $(document).on('click', '.chef_link', function() {
-        console.log($(this).attr('id'));
         var chef_email = $(this).attr('id');
         var chef_id = chef_email.replace(/\@.*$/g, '');
 
