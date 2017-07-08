@@ -52,9 +52,10 @@ h2 {
     padding-bottom: 3%;
 }
 
-h3{
+h3, .pacifico{
    font-family: "Pacifico", cursive;
 }
+
 h4{
     color: #777777;
 }
@@ -85,8 +86,6 @@ h4{
 }
 
 .photo{
-    border: 1px solid #444444;
-    height: 7em;
 }
 
 .modal-header{
@@ -139,4 +138,8 @@ h4{
 
 .follow_icon:hover {
     opacity: 0.5;
+}
+
+.tab {
+    padding-right: .5em;
 }

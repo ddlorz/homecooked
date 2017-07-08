@@ -10,9 +10,9 @@ $(document).ready(function() {
             return letter.toUpperCase();
         });
 
-        $('#firstName').html('First Name: ' + first_name);
-        $('#lastName').html('Last Name: ' + last_name);
-        $('#zipCode').html('Zip Code: ' + res.zip);
+        $('#firstName').html(first_name);
+        $('#lastName').html(last_name);
+        $('#zipCode').html(res.zip);
     });
 
     $(document).on('click', '#profile_save', function() {
@@ -25,7 +25,7 @@ $(document).ready(function() {
             }
             
             $.post('/api/chef_profile', chef, function(res) {   
-                $('#priceMeal').text('Price Per Meal: $' + $('#price').val());             
+                $('#priceMeal').text($('#price').val());             
                 $('#photo').empty();
                 $('#biography').empty();
                 $('#price').empty();                
@@ -36,5 +36,13 @@ $(document).ready(function() {
             console.log('Please complete the form.');
         }
 
+    });
+
+    $(document).on('click', '#sign_out', function() {
+         localStorage.setItem('chef_email', '');
+         localStorage.setItem('email', '');
+
+         var url = window.location.origin + '/'
+         window.location = url;
     });
 });
