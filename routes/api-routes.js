@@ -14,7 +14,6 @@ module.exports = function(app) {
             phone: req.body.phone,
             classification: req.body.class
         }).then(function(result) {
-            console.log(result.dataValues.id);
             if (req.body.class === 'Chef') {
                 Chef.create({
                     userId: result.dataValues.id,

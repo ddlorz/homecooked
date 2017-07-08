@@ -36,6 +36,8 @@ module.exports = function(app) {
         User.hasOne(Chef);
         Chef.belongsTo(User, {foreignKey: 'userId'});
 
+        console.log(chef_id);
+
         Chef.findOne({  
             where: {
                  email: chef_id   
@@ -45,7 +47,8 @@ module.exports = function(app) {
                 required: false
             }
         }).then(function(result) {
-            console.log(result);
+            result.dataValues.User.dataValues.first_name = result.dataValues.User.dataValues.first_name.toUpperCase();
+            result.dataValues.User.dataValues.last_name = result.dataValues.User.dataValues.last_name.slice(0 , 1).toUpperCase(); 
             res.render('chef-profile', {result});
         });   
     });

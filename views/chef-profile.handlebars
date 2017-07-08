@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-xs-4">
             <div class="row">
-                <img class="img-circle center-block" src="/assets/chef4.jpg" alt="chef-image" width="60%">
+                <img class="img-circle center-block" src="/assets/chef.jpg" alt="chef-image" width="60%">
             </div>
             <div class="row center-block text-center" id="chef_bio">
                 <h4>Steak-aficionado, mixed-veggie master on a health kick</h4>
@@ -14,12 +14,15 @@
         </div>
         <div class="col-xs-8" style="padding-left:4%">
             <div class="row">
-                <h3>SWEET P. | 77005 </h3>
+                <h3>{{result.dataValues.User.dataValues.first_name}} {{result.dataValues.User.dataValues.last_name}}.| {{result.dataValues.location}} </h3>
             </div>
             <div class="row" id="chef_specialties">
-                <h4>
-                    <u>Specialty Cuisines:</u> Poultry, Beef, Vegetables, Pasta, Salads, Fruits, Gluten Free
-                </h4>
+                <h4><u>Specialty Cuisines:</u> Poultry, Beef, Vegetables, Pasta, Salads, Fruits, Gluten Free</h4>
+                <h4><u>Price Range:</u> ${{result.dataValues.price}}.00</h4>
+                <h4><u>Radius:</u> 15+ Miles</h4>   
+                <br> 
+                <br>
+                <input class="btn btn-primary" type="button" value="message">            
             </div>
         </div>
     </div>
@@ -50,4 +53,4 @@
         </div>
     </div>
 </div>
-<script src="chef-profile.js"></script>
+
