@@ -46,9 +46,10 @@ module.exports = function(app) {
             }
         }).then(function(result) {
             console.log(result);
-            res.render('chef-profile', {chef: result});
-        });
-        
-        
+            res.render('chef-profile', {result});
+        });   
+    });
+    app.get('/user_page', function(req, res) {
+        res.render('customer-form', {});
     });
 }
