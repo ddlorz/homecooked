@@ -45,7 +45,6 @@ module.exports = function(app) {
                 required: false
             }
         }).then(function(result) {
-            console.log(result);
             res.render('chef-profile', {result});
         });   
     });
