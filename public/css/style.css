@@ -62,6 +62,7 @@ h4{
 #main_row {
     background-image: url("../assets/index_chicken.jpg");
     margin-bottom: -1em;
+    height: 500px;
 }
 
 #main_form {
@@ -107,4 +108,9 @@ h4{
     margin: 2%;
     background-color: #eeeeee;
     border-radius: 3%;
+}
+
+.chef_link:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }

@@ -62,7 +62,7 @@ $(document).ready(function () {
     });
 
 
-    $('#sign_in_form').on('click', '#sign_in_submit', function () {
+    $('#sign_in_form').on('click', '#sign-in-submit', function () {
         event.preventDefault();
 
         if ($('#user_email').val() && $('#user_password').val()) {
