@@ -6,6 +6,7 @@ var nodemailer = require('nodemailer');
 
 module.exports = function(app) {
     app.post('/api/new_user', function(req, res) {
+        req.session.user = req.body;
 
         User.create({
             first_name: req.body.first_name,
@@ -33,7 +34,9 @@ module.exports = function(app) {
                 email: req.body.email,
             }
         }).then(function(result) {
-            res.json(result.dataValues);      
+            req.session.user = result.dataValues; 
+            console.log(req.session.user);
+            res.end();
         });
     });
 
@@ -54,7 +57,7 @@ module.exports = function(app) {
     app.post('/api/getChef', function(req, res) {
         User.findOne({
             where: {
-                email: req.body.email
+                email: req.session.user.email
             }
         }).then(function(result) {
             res.json(result);
@@ -88,6 +91,19 @@ module.exports = function(app) {
                 return console.log(error);
             }
             console.log('Message %s sent: %s', info.messageId, info.response);
+            res.end();
+        });
+    });       
+
+    app.post('/api/save_url', function(req, res) {
+        console.log(req.body);
+        User.update({
+            photo: req.body.url
+        }, {
+            where: {
+                email: req.session.user.email
+            }
+        }).then(function(result) {
             res.end();
         });
     });

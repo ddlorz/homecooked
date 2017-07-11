@@ -1,250 +1,224 @@
 <div class="container">
+
+    <!--PAGE HEADER - HEADING AND SIGN-OUT LINK-->
     <div class="row" id="header">
         <h1 class='inline'>Homecooked</h1>        
-        <b class='inline right' id='sign_out'>Sign Out</b>
-        <hr>
+        <b class='inline right' id='sign_out'>Sign Out</b>        
     </div>
-    <!--
-    <div class="row">
-        <div class="col-xs-4 photo" id="photo1">
-            <img src="/assets/placeholder_pot.jpg" alt="placeholder_pot" height="250px" width="383px">
-        </div>
-        <div class="col-xs-4 photo" id="photo2">
-            <img src="/assets/placeholder_dish.jpg" alt="placeholder_dish" height="250px" width="383px">
-        </div>
-        <div class="col-xs-4 photo" id="photo3">
-            <img src="/assets/placeholder_pot.jpg" alt="placeholder_pot" height="250px" width="383px">
-        </div>
-    </div>
-    -->
-    <div class="row" style="margin: 50px 0 50px 0">
+
+    <hr>
+
+    <!--BODY - CHEF BASIC INFO AND PHOTO. EDIT BUTTONS-->
+    <div class="row" style='height: 280px;'>
         <div class="col-xs-4">
-            <img src="/assets/placeholder.jpg" alt="placeholder_photo" height="250px" width="250px">
+            <div class="row">
+                <img class="img-circle center-block profile-picture" src="/assets/placeholder.jpg" alt="chef-image" width="60%" id='chef_photo'>
+                <button class='photo-button icon-enlarge' data-toggle="modal" data-target="#profile_picture_modal">
+                    <span class="glyph-font glyphicon glyphicon-camera"></span>
+                </button>
+            </div>
+            <div class="row center-block text-center" id="chef_bio">
+                <h4 id='chef_summary'>Chef Summary</h4>
+            </div>
         </div>
-        <div class="col-xs-8">
+        <div class="col-xs-6" style="padding-left:4%">
             <div class="row">
-                <div class="col-xs-6">
-                    <h3 class='inline tab'><u>First Name:</u></h3><h4 class='inline' id='firstName'></h4>
-                </div>
-                <div class="col-xs-5">
-                    <h3 class='inline tab'><u>Last Name: </u></h3></h4><h4 class='inline' id='lastName'></h4>
-                </div>
-                <div class="col-xs-1">
-                    <button data-toggle="modal" data-target="#chef_about_modal"><span class="glyphicon glyphicon-pencil"></span></button>
-                </div>
+                <h3>{{user.first_name}} {{user.last_name}}.| {{user.zip}} </h3>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class='inline tab' ><u>Zipcode: </u></h3><h4 class='inline' id='zipCode'>Zip Code:</h4>
-                </div>
-                <div class="col-md-6">
-                    <h3 class='inline tab'><u>Price Per Meal: </u></h3><h4 class='inline' id='priceMeal'></h4>
-                </div>
+            <div class="row" id="chef_specialties">
+                <h4><u class='pacifico tab'>Specialty Cuisines:</u></h4>
+                <h4><u class='pacifico tab'>Price Range:</u></h4>
+                <h4><u class='pacifico tab'>Travel Radius:</u></h4> 
             </div>
-            <div class="row" id="specialties">
-                <div class="col-xs-11">
-                    <h3><u>Specialties: </u></h3>
-                </div>
-                <div class="col-xs-1">
-                    <button data-toggle="modal" data-target="#chef_specialties_modal"><span class="glyphicon glyphicon-pencil"></span></button>
-                </div>
-                <!-- List Specialties Here -->
-            </div>
-            <!-- 
-            <div class="row" id="restrictions">
-                <div class="col-xs-11">
-                    <h3><u>Dietary Restrictions: </u></h3>
-                </div>
-                <div class="col-xs-1">
-                    <button data-toggle="modal" data-target="#chef_restrictions_modal"><span class="glyphicon glyphicon-pencil"></span></button>
-                </div>
-            </div>
-            -->
-            <div class="row" id="specialties">
-                <div class="col-md-11">
-                    <h3><u>Travel Radius: </u></h3>
-                </div>
-                <div class="col-md-1">
-                    <button data-toggle="modal" data-target="#chef_radius_modal"><span class="glyphicon glyphicon-pencil"></span></button>
-                </div>
-                <!-- List Travel Radius Here -->
+        </div>
+        <div class='col-xs-1'>
+            <div class='row' style='margin-top: 16px;'>
+                <button data-toggle="modal" data-target="#chef_about_modal" style='opacity: .7;'><span class="pencil-button glyphicon glyphicon-pencil"></span></button>
             </div>
         </div>
     </div>
+
+    <hr>
+
     <div class="row text-center">
-        <div class="col-xs-4 photo" id="menu1">
-            <img src="/assets/placeholder_dish.jpg" alt="placeholder_dish" height="250px" width="383px">
+        <h3>MENUS</h3>
+        <div class="col-md-4" id="menu1">
+            <div class="row" id="menu1_pic">
+                <img src="/assets/placeholder_dish.jpg" alt="placeholder_dish" class='food_photo'>
+                <button class='food-button icon-enlarge' data-toggle="modal" data-target="#food_1_modal">
+                    <span class="glyph-font glyphicon glyphicon-pencil"></span>
+                </button>
+                <div class="col-xs-10 col-xs-offset-1">Description | Price</div>
+            </div>
+            <div class="row" id="menu1_desc"></div>
         </div>
-        <div class="col-xs-4 photo" id="menu2">
-            <img src="/assets/placeholder_pot.jpg" alt="placeholder_pot" height="250px" width="383px">
+        <div class="col-md-4" id="menu2">
+            <div class="row" id="menu2_pic">
+                <img src="/assets/placeholder_pot.jpg" alt="placeholder_pot" class='food_photo'>
+                <button class='food-button icon-enlarge' data-toggle="modal" data-target="#food_2_modal">
+                    <span class="glyph-font glyphicon glyphicon-pencil"></span>
+                </button>
+                <div class="col-xs-10 col-xs-offset-1">Description | Price</div>
+            </div>
+            <div class="row" id="menu2_desc"></div>
         </div>
-        <div class="col-xs-4 photo" id="menu3">
-            <img src="/assets/placeholder_dish.jpg" alt="placeholder_dish" height="250px" width="383px">
-        </div>
+        <div class="col-md-4" id="menu3">
+            <div class="row" id="menu3_pic">
+                <img src="/assets/placeholder_dish.jpg" alt="placeholder_dish" class='food_photo'>
+                <button class='food-button icon-enlarge' data-toggle="modal" data-target="#food_3_modal">
+                    <span class="glyph-font glyphicon glyphicon-pencil"></span>
+                </button>
+                <div class="col-xs-10 col-xs-offset-1">Description | Price</div>
+            </div>
+            <div class="row" id="menu3_desc"></div>
         </div>
     </div>
-    <!-- MODAL FOR CHANGING "About Me" SECTION -->
+
+    <!--MODAL-->
     <div class="modal fade" id="chef_about_modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" style='display: inline-block'>Edit Profile Info</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style='display: inline-block'>>&times;</button>
+                    <h3 class="modal-title" style='display: inline-block'>Edit Information</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style='display: inline-block'>&times;</button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body">                    
                     <div class="form-group">
-                        <label for="text">Upload a photo of yourself</label>
-                        <input type="text" class="form-control" id="photo">
+                        <label for="text">Tell us a little about yourself (Limit 100 characters)</label>
+                        <textarea type="text" class="form-control" id='summary' rows='3'></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="text">Tell us a little about yourself</label>
-                        <input type="text" class="form-control" id="biography">
-                    </div>
-                    <!--<div class="form-group">
-                        <label for="text">First Name</label>
-                        <input type="text" class="form-control" id="first_name">
+                        <label for="text">Specialties</label>
+                        <input type="text" class="form-control" id="specialties">
                     </div>
                     <div class="form-group">
-                        <label for="text">Last Name</label>
-                        <input type="text" class="form-control" id="last_name">
-                    </div>
-                    <div class="form-group">
-                        <label for="text">Zip Code</label>
-                        <input type="text" class="form-control" id="zipcode">
-                    </div>-->
-                    <div class="form-group">
-                        <label for="text">Price Per Meal</label>
+                        <label for="text">Price Range</label>
                         <input type="text" class="form-control" id="price">
                     </div>
+                    <div class="form-group">
+                        <label for="text">Travel Radius</label>
+                        <input type="text" class="form-control" id="radius">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- Add something here to update/add to where Domingo has data stored -->
-                    <button type="button" class="btn btn-primary" id='profile_save'>Save changes</button>
+                    <button type="button" class="btn btn-primary" id='profile_save'>Save Changes</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- MODAL FOR CHANGING "Specialties" SECTION -->
-    <div class="modal fade" id="chef_specialties_modal" tabindex="-1" role="dialog">
+
+    <div class="modal fade" id="profile_picture_modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">Edit Your Specialties</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h3 class="modal-title" style='display: inline-block'>Edit Profile Picture</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style='display: inline-block'>&times;</button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            Tex-Mex
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            Italian
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            Asian
-                        </label>
+                <div class="modal-body"> 
+                    <div class="form-group">
+                        <label for="text">Photo Image</label>
+                        <input type="file" class="form-control" id="profile_photo">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- Add something here to update/add to where Domingo has data stored -->
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id='photo_save'>Save Image</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- MODAL FOR CHANGING "Dietary Restrictions" SECTION -->
-    <div class="modal fade" id="chef_restrictions_modal" tabindex="-1" role="dialog">
+
+    <div class="modal fade" id="food_1_modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">Do you cater to any dietary restrictions?</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <h3 class="modal-title" style='display: inline-block'>Menu Picture</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style='display: inline-block'>&times;</button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            Gluten Free
-                        </label>
+                <div class="modal-body"> 
+                    <div class="form-group">
+                        <label for="text">Food Image</label>
+                        <input type="file" class="form-control" id="menu_1">
                     </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            Low Sugar
-                        </label>
+                    <div class="form-group">
+                        <label for="text">Description</label>
+                        <textarea type="text" class="form-control" id='' rows='2'></textarea>
                     </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            High Protein
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            Paleo
-                        </label>
+                    <div class="form-group">
+                        <label for="text">Price</label>
+                        <input type="text" class="form-control" id="">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- Add something here to update/add to where Domingo has data stored -->
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id=''>Save Image</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- MODAL FOR CHANGING "Travel Radius" SECTION -->
-    <div class="modal fade" id="chef_radius_modal" tabindex="-1" role="dialog">
+
+    <div class="modal fade" id="food_2_modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">How far are you willing to travel?</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <h3 class="modal-title" style='display: inline-block'>Menu Picture</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style='display: inline-block'>&times;</button>
                 </div>
-                <div class="modal-body">
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-default">
-                                <input type="radio" name="options" id="chef_radio">0-3 miles
-                            </label>
-                        <label class="btn btn-default">
-                                <input type="radio" name="options" id="customer_radio">3-5 miles
-                            </label>
-                        <label class="btn btn-default">
-                                <input type="radio" name="options" id="customer_radio">5-10 miles
-                            </label>
-                        <label class="btn btn-default">
-                                <input type="radio" name="options" id="customer_radio">10-15 miles
-                            </label>
-                        <label class="btn btn-default">
-                                <input type="radio" name="options" id="customer_radio">15+ miles
-                            </label>
+                <div class="modal-body"> 
+                    <div class="form-group">
+                        <label for="text">Food Image</label>
+                        <input type="file" class="form-control" id="menu_2">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Description</label>
+                        <textarea type="text" class="form-control" id='' rows='2'></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Price</label>
+                        <input type="text" class="form-control" id="">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- Add something here to update/add to where Domingo has data stored -->
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id=''>Save Image</button>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
+
+    <div class="modal fade" id="food_3_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" style='display: inline-block'>Menu Picture</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style='display: inline-block'>&times;</button>
+                </div>
+                <div class="modal-body"> 
+                    <div class="form-group">
+                        <label for="text">Food Image</label>
+                        <input type="file" class="form-control" id="menu_3">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Description</label>
+                        <textarea type="text" class="form-control" id='' rows='2'></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Price</label>
+                        <input type="text" class="form-control" id="">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id=''>Save Image</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>    
+
+    <!--DOCUMENT FOOTER - INCLUDES SOCIAL MEDIA ICONS-->
     <footer class="nav text-center" id="footer">  
         <label for='footer' class='text-center'><h3>Follow Us<h3></label>  
         <a class="nav-link" href="#"><img src='/assets/twitter.png' class='follow_icon' alt='twitter'></a> | 

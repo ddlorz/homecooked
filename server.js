@@ -2,6 +2,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var session = require('express-session');
 var mysql = require('mysql');
 var path = require('path');
 var db = require('./models');
@@ -18,6 +19,13 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
+app.set('trust proxy', 1);
+app.use(session({
+    secret: 'cat',
+    resave: false,
+    saveUninitialized: false
+}));
 
 require('./routes/html-routes.js')(app);
 require('./routes/api-routes.js')(app);

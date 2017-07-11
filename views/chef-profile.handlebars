@@ -1,10 +1,15 @@
 <div class="container">
+
+    <!--PAGE HEADER - HEADING AND SIGN-OUT LINK-->
     <div class="row" id="header">
         <h1 class='inline'>Homecooked</h1>        
-        <b class='inline right' id='sign_out'>Sign Out</b>
-        <hr>
+        <b class='inline right' id='sign_out'>Sign Out</b>        
     </div>
-    <div class="row">
+
+    <hr>
+
+    <!--BODY - CHEF BASIC INFORMATION - PHOTO, SUMMARY, NAME, LOCATION, SPECIALTY, PRICE, TRAVEL RADIUS, MESSAGE BUTTON-->
+    <div class="row" style='height: 280px;'>
         <div class="col-xs-4">
             <div class="row">
                 <img class="img-circle center-block profile-picture" src={{result.dataValues.User.dataValues.photo}} alt="chef-image" width="60%">
@@ -21,38 +26,41 @@
                 <h4><u class='pacifico tab'>Specialty Cuisines:</u> Poultry, Beef, Vegetables, Pasta, Salads, Fruits, Gluten Free</h4>
                 <h4><u class='pacifico tab'>Price Range:</u> ${{result.dataValues.price}}.00</h4>
                 <h4><u class='pacifico tab'>Travel Radius:</u> 15+ Miles</h4>   
-                <br> 
-                <br>
+                <br><br>
                 <input data-toggle="modal" data-target="#message_modal" class="btn btn-primary" type="button" value="MESSAGE">            
             </div>
         </div>
     </div>
+
     <hr>
+
+    <!--MENU ROW - PHOTOS, DESCRIPTION, PRICE-->
     <div class="row text-center">
         <h3>MENUS</h3>
         <div class="col-md-4" id="menu1">
             <div class="row" id="menu1_pic">
-                <img src="/assets/chicken_2.jpg" alt="chicken" width="75%">
+                <img src="/assets/chicken_2.jpg" alt="chicken" class='food_photo'>
                 <div class="col-xs-10 col-xs-offset-1">Chicken fried steak with garlic mashed potatoes | $10</div>
             </div>
             <div class="row" id="menu1_desc"></div>
         </div>
         <div class="col-md-4" id="menu2">
             <div class="row" id="menu2_pic">
-                <img src="/assets/roast_3.jpg" alt="chicken" width="75%">
+                <img src="/assets/roast_3.jpg" alt="chicken" class='food_photo'>
                 <div class="col-xs-10 col-xs-offset-1">Gravy-smothered meatloaf alongside steamed mixed vegetables and a cupcake | $9</div>
             </div>
             <div class="row" id="menu2_desc"></div>
         </div>
         <div class="col-md-4" id="menu3">
             <div class="row" id="menu3_pic">
-                <img src="/assets/salad_7.jpg" alt="chicken" width="75%">
-                <div class="col-xs-10 col-xs-offset-1">Mixed green salad topped with 4 oz. of baked chicken, pumpkin seeds, cranberries and broccoli sprouts
-                    | $6</div>
+                <img src="/assets/salad_7.jpg" alt="chicken" class='food_photo'>
+                <div class="col-xs-10 col-xs-offset-1">Mixed green salad topped with 4 oz. of baked chicken, pumpkin seeds, cranberries and broccoli sprouts | $6</div>
             </div>
             <div class="row" id="menu3_desc"></div>
         </div>
     </div>
+
+    <!--MESSAGE MODAL - DISABLED 'TO' INPUT, EMAIL SUBJECT, EMAIL BODY-->
     <div class="modal fade" id="message_modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -75,15 +83,18 @@
                         <textarea type="text" class="form-control" id="user_message" rows='10'></textarea>
                     </div>                    
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id='send_message'>Send Message</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
 
     <hr>
+
+    <!--DOCUMENT FOOTER - INCLUDES SOCIAL MEDIA ICONS-->
     <footer class="nav text-center" id="footer">  
         <label for='footer' class='text-center'><h3>Follow Us<h3></label>  
         <a class="nav-link" href="#"><img src='/assets/twitter.png' class='follow_icon' alt='twitter'></a> | 
@@ -91,24 +102,7 @@
         <a class="nav-link" href="#"><img src='/assets/instagram.png' class='follow_icon' alt='instagram'></a> | 
         <a class="nav-link" href="#"><img src='/assets/youtube.png' class='follow_icon' alt='youtube'></a>
     </footer>
-
 </div>
 
-<script>
-    $(document).on('click', '#send_message', function() {
-         $('#message_modal').modal('toggle');
-         $('#email_subject').val('');
-         $('#user_message').val('');
-         $.post('/api/send_mail', {}, function(res) {});
-    });
-
-    $(document).on('click', '#sign_out', function() {
-         localStorage.setItem('chef_email', '');
-         localStorage.setItem('email', '');
-
-         var url = window.location.origin + '/'
-         window.location = url;
-    });
-
-</script>
+<script src="/javascript/chef_profile.js"></script>
 

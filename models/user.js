@@ -20,6 +20,10 @@ module.exports = function(sequelize , DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        location: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         phone: {
             type: DataTypes.STRING,
             allowNull: true
