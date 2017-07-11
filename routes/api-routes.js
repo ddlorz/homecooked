@@ -1,6 +1,7 @@
 var db = require('../models');
 var User = db.User;
-var Chef = db.Chef
+var Chef = db.Chef;
+var Menu = db.Menu;
 var sequelize = db.sequelize;
 var nodemailer = require('nodemailer');
 
@@ -21,8 +22,14 @@ module.exports = function(app) {
                     userId: result.dataValues.id,
                     email: req.body.email
                 }).then(function() {
+                    for (var i = 0; i < 3; i++) {
+                        Menu.create({
+                            number: i + 1,
+                            email: req.body.email
+                        }).then(function() {});
+                    }
                     res.end();
-                });
+                });                
             }
             else { res.end(); }
         });   
@@ -98,9 +105,23 @@ module.exports = function(app) {
     app.post('/api/save_url', function(req, res) {
         console.log(req.body);
         User.update({
-            photo: req.body.url
+            [req.body.col]: req.body.url
         }, {
             where: {
+                email: req.session.user.email
+            }
+        }).then(function(result) {
+            res.end();
+        });
+    });
+
+    app.post('/api/save_menu', function(req, res) {
+        console.log(req.body);
+        Menu.update({            
+            picture_url: req.body.url
+        }, {
+            where: {
+                menu_id: req.body.menu_id,
                 email: req.session.user.email
             }
         }).then(function(result) {
