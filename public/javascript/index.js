@@ -40,15 +40,13 @@ $(document).ready(function () {
 
             firebase.auth().createUserWithEmailAndPassword(user_email, user_password)
                 .then(function () {
-                    //console.log('No Error');
                     $.post('/api/new_user', user, function (res) {
-                        localStorage.setItem('email', user_email);
-                        if (classification === 'Consumer') {
+                        if (classification === 'Consumer') {                            
                             var url = window.location.origin + '/chef_gallery'
                             window.location = url;
                         }
                         else if (classification === 'Chef') {
-                            var url = window.location.origin + '/chef_page'
+                            var url = window.location.origin + '/chef_form'
                             window.location = url;
                         }                        
                     });
@@ -71,7 +69,6 @@ $(document).ready(function () {
 
             firebase.auth().signInWithEmailAndPassword(user_email, user_password)
                 .then(function () {
-                    localStorage.setItem('email', user_email);
                     $.post('/api/sign_in', { email: user_email }, function (res) {
                         var url = window.location.origin + '/chef_gallery'
                         window.location = url;
@@ -83,6 +80,10 @@ $(document).ready(function () {
 
         //add izimodal to message user about incomplete form
         else { console.log('Please complete form.'); }
+    });
+
+    $("input[name='phone']").keyup(function() {
+        $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d)+$/, "($1) $2-$3"));
     });
 
     $("#sign_in").click(function () {
@@ -102,4 +103,6 @@ $(document).ready(function () {
         $("#sign_in_heading").addClass("hide");
         $("#dont_have_acct").addClass("hide");
     });
+
+
 });

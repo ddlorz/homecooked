@@ -1,11 +1,13 @@
 var db = require('../models');
 var User = db.User;
-var Chef = db.Chef
+var Chef = db.Chef;
+var Menu = db.Menu;
 var sequelize = db.sequelize;
 var nodemailer = require('nodemailer');
 
 module.exports = function(app) {
     app.post('/api/new_user', function(req, res) {
+        req.session.user = req.body;
 
         User.create({
             first_name: req.body.first_name,
@@ -20,8 +22,14 @@ module.exports = function(app) {
                     userId: result.dataValues.id,
                     email: req.body.email
                 }).then(function() {
+                    for (var i = 0; i < 3; i++) {
+                        Menu.create({
+                            number: i + 1,
+                            email: req.body.email
+                        }).then(function() {});
+                    }
                     res.end();
-                });
+                });                
             }
             else { res.end(); }
         });   
@@ -33,7 +41,9 @@ module.exports = function(app) {
                 email: req.body.email,
             }
         }).then(function(result) {
-            res.json(result.dataValues);      
+            req.session.user = result.dataValues; 
+            console.log(req.session.user);
+            res.end();
         });
     });
 
@@ -54,7 +64,7 @@ module.exports = function(app) {
     app.post('/api/getChef', function(req, res) {
         User.findOne({
             where: {
-                email: req.body.email
+                email: req.session.user.email
             }
         }).then(function(result) {
             res.json(result);
@@ -88,6 +98,33 @@ module.exports = function(app) {
                 return console.log(error);
             }
             console.log('Message %s sent: %s', info.messageId, info.response);
+            res.end();
+        });
+    });       
+
+    app.post('/api/save_url', function(req, res) {
+        console.log(req.body);
+        User.update({
+            [req.body.col]: req.body.url
+        }, {
+            where: {
+                email: req.session.user.email
+            }
+        }).then(function(result) {
+            res.end();
+        });
+    });
+
+    app.post('/api/save_menu', function(req, res) {
+        console.log(req.body);
+        Menu.update({            
+            picture_url: req.body.url
+        }, {
+            where: {
+                menu_id: req.body.menu_id,
+                email: req.session.user.email
+            }
+        }).then(function(result) {
             res.end();
         });
     });

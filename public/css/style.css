@@ -33,7 +33,7 @@ body {
   overflow: hidden;
 }
 
-p{
+p {
   padding: 15px;
   font-size: 20px;
   text-align: justify;
@@ -52,11 +52,11 @@ h2 {
     padding-bottom: 3%;
 }
 
-h3, .pacifico{
+h3, .pacifico {
    font-family: "Pacifico", cursive;
 }
 
-h4{
+h4 {
     color: #777777;
 }
 
@@ -76,7 +76,7 @@ h4{
 }
 
 
-#submit_user {
+#submit_user, #sign-in-submit {
     width: 100%;
 }
 
@@ -85,10 +85,7 @@ h4{
     border: 1px solid #aaaaaa;
 }
 
-.photo{
-}
-
-.modal-header{
+.modal-header {
     color: #ffffff;
     background-color: #78af42;
     text-align: center;
@@ -98,11 +95,11 @@ h4{
     border-radius: 40%;
 }
 
-.gallery_pic{
+.gallery_pic {
     margin-top: 4%;
 }
 
-.gallery{
+.gallery {
     border: 1px solid #dddddd;
     margin: 2%;
     background-color: #eeeeee;
@@ -120,6 +117,45 @@ h4{
 
 .right {
     float: right;
+}
+
+.left {
+    float: left;
+}
+
+.photo-button {
+    position: absolute;
+    left: 260px;
+    bottom: 175px;
+}
+
+.food-button {
+    position: absolute;
+    left: 285px;
+    bottom: 162px;
+}
+
+.pencil-button {
+    font-size: 18pt;
+    opacity: .7;
+}
+
+.icon-enlarge {
+    width: 60px;
+    height: 60px;
+    opacity: .7;
+}
+
+.glyph-font {
+    font-size: 30pt;
+}
+
+.negative-index {
+    z-index: -1;
+}
+
+.positive-index {
+    z-index: 1;
 }
 
 #sign_out:hover {
@@ -142,4 +178,14 @@ h4{
 
 .tab {
     padding-right: .5em;
+}
+
+.food_photo {
+    width: 300px;
+    height: 200px;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
 }
